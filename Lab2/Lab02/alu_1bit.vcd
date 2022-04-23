@@ -1,0 +1,98 @@
+$date
+	Fri Apr 15 23:44:53 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module alu_1bit_tb $end
+$var wire 1 ! sum $end
+$var wire 1 " carry $end
+$var reg 1 # Ainvert $end
+$var reg 1 $ Binvert $end
+$var reg 1 % a $end
+$var reg 1 & b $end
+$var reg 1 ' cin $end
+$var reg 1 ( less $end
+$var reg 2 ) operation [1:0] $end
+$scope module UUT $end
+$var wire 1 # Ainvert $end
+$var wire 1 $ Binvert $end
+$var wire 1 * and_res $end
+$var wire 1 ' cin $end
+$var wire 1 ( less $end
+$var wire 1 + not_a $end
+$var wire 1 , not_b $end
+$var wire 2 - operation [1:0] $end
+$var wire 1 . or_res $end
+$var wire 1 % src1 $end
+$var wire 1 & src2 $end
+$var wire 1 / mux_end $end
+$var wire 1 0 carry $end
+$var wire 1 1 b_res $end
+$var wire 1 2 add_res $end
+$var wire 1 3 a_res $end
+$var reg 1 " cout $end
+$var reg 1 ! result $end
+$var reg 2 4 t [1:0] $end
+$scope module m1 $end
+$var wire 1 # select $end
+$var wire 1 % src1 $end
+$var wire 1 + src2 $end
+$var reg 1 3 result $end
+$upscope $end
+$scope module m2 $end
+$var wire 1 $ select $end
+$var wire 1 & src1 $end
+$var wire 1 , src2 $end
+$var reg 1 1 result $end
+$upscope $end
+$scope module m3 $end
+$var wire 4 5 select [3:0] $end
+$var wire 1 * src1 $end
+$var wire 1 . src2 $end
+$var wire 1 2 src3 $end
+$var wire 1 ( src4 $end
+$var reg 1 / result $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 5
+b0 4
+13
+02
+11
+10
+1/
+1.
+b0 -
+0,
+0+
+1*
+b0 )
+0(
+0'
+1&
+1%
+0$
+0#
+0"
+1!
+$end
+#21000
+b1 5
+b1 )
+b1 -
+#42000
+0!
+1"
+0/
+b11 5
+b11 )
+b11 -
+#63000

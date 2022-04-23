@@ -1,3 +1,3 @@
 # Computer_Organization
 <br>
-2022 Spring Tien-Fu C
+2022 Spring Tien-Fu Chen

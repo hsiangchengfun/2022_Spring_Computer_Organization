@@ -22,7 +22,7 @@ assign RegWrite = (opcode[6:4] == 3'b010)? 0 : 1;
 
 assign ALUOp = (opcode[6:4] != 3'b011) ? 2'b00 : (funct3 != 3'b000 && funct3 != 3'b010 && funct3 != 3'b111 & funct3!= 3'b110)?2'b11 :2'b10;
 
-assign Branch = 0;
+assign Branch = (opcode[6:4]==3'b110)? 1 : 0;
 
 
 

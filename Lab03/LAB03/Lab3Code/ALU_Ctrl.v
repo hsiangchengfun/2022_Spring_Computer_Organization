@@ -32,7 +32,7 @@ always @(*) begin
 			4'b0110://or
 				ALU_Ctrl_o <= 4'b0001;
 			4'b0010://slt
-				ALU_Ctrl_o <= 4'b1000;
+				ALU_Ctrl_o <= 4'b0111;
 		endcase
 
 	end
@@ -42,7 +42,7 @@ always @(*) begin
 			4'b1101://sra
 				ALU_Ctrl_o <= 4'b1111;	
 			4'b0001://sll
-				ALU_Ctrl_o <= 4'b0111;
+				ALU_Ctrl_o <= 4'b1011;
 			4'b0100://xor
 				ALU_Ctrl_o <= 4'b0011;
 		endcase

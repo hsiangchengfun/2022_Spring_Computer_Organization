@@ -32,7 +32,6 @@ always @(*) begin
 			4'b0110://or
 				ALU_Ctrl_o <= 4'b0001;
 			4'b0010://slt
-				// ALU_Ctrl_o <= 4'b1000;
 				ALU_Ctrl_o <= 4'b0111;
 		endcase
 

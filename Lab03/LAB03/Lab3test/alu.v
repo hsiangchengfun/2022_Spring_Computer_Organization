@@ -51,22 +51,7 @@ always @(*) begin
 		zero <= 0;
 		cout <= 0;
 	end
-	// else if (ALU_control == 4'b1000)begin
-	// else if (ALU_control == 4'b0111)begin
-	// 		begin
-	// 			res <= src1-src2;
-	// 			if(res[32]==1)
-	// 				begin
-	// 				result<=32'b1;
-	// 				end
-	// 			else
-	// 				begin
-	// 				result<=32'b0;
-	// 				end
-	// 			zero<=!res[32];
-	// 			cout<=0;
-	// 		end
-	// end
+	
 	else if (ALU_control[2-1:1-1] == 2'b11 && ALU_control[4-1:3-1]!= 2'b01) begin
 			case(ALU_control[4-1:3-1])
 				2'b11://sra

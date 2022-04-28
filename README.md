@@ -1,6 +1,6 @@
 # Computer_Organization
 <br>
-2022 Spring Tien-Fu Chen
+<strong >2022 Spring Tien-Fu Chen</strong>
 
 Lab01 Simple RiscV Assembly <br>
 Lab02 32bit ALU <br>

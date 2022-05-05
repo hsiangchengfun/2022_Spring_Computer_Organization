@@ -36,7 +36,7 @@ assign PCSrc = (Branch & Zero) | Jump;
 wire [32-1:0] PcPlus4;
 wire [32-1:0] RSdata_o;
 wire [32-1:0] RTdata_o;
-wire [32-1:0] MUXA_o;
+wire [32-1:0] MUX_ALUSrcA_o;
 wire [32-1:0] Adder_PCReg_o;
 wire [32-1:0] MUX_ALUSrcB_o;
 wire [32-1:0] ALU_Result;
@@ -104,11 +104,11 @@ MUX_2to1 MUX_ALUSrcA(
     .data0_i(pc_o),
     .data1_i(RSdata_o),
     .select_i(ALUSrcA),
-    .data_o(MUXA_o)
+    .data_o(MUX_ALUSrcA_o)
 );
 
 Adder Adder_PCReg(
-    .src1_i(MUXA_o),
+    .src1_i(MUX_ALUSrcA_o),
     .src2_i(Imm_Gen_o),
     .sum_o(Adder_PCReg_o)
 );

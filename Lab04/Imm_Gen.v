@@ -18,7 +18,7 @@ assign func3  = instr_i[14:12];
 
 always @(*) begin
     
-    case(opcode):
+    case(opcode)
         //addi , jalr , lw
         7'b0010011, 7'b0000011 , 7'b1100111:
             Imm_Gen_o <= { {21{instr_i[31]}}, instr_i[30:20] };
@@ -37,7 +37,7 @@ always @(*) begin
 
         default:
             Imm_Gen_o <= 0;
-            
+
     endcase
 
 end

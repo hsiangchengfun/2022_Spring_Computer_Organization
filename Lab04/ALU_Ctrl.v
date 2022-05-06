@@ -10,5 +10,9 @@ wire [2:0] func3;
 assign func3 = instr[2:0];
 /* Write your code HERE */
 
+
+
+
+
 endmodule
 

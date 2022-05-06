@@ -24,15 +24,17 @@ always @(*) begin
                
                 case(instr)
                     4'b0000://add
-                        ALU_Ctrl_o <= 4'b0010;
+                        ALU_Ctrl_o_reg <= 4'b0010;
                     4'b1000://sub
-                        ALU_Ctrl_o <= 4'b0110;
+                        ALU_Ctrl_o_reg <= 4'b0110;
                     4'b0111://and
-                        ALU_Ctrl_o <= 4'b0000;
+                        ALU_Ctrl_o_reg <= 4'b0000;
                     4'b0110://or
-                        ALU_Ctrl_o <= 4'b0001;
+                        ALU_Ctrl_o_reg <= 4'b0001;
                     4'b0010://slt
-                        ALU_Ctrl_o <= 4'b0111;
+                        ALU_Ctrl_o_reg <= 4'b0111;
+                    default:
+                        ALU_Ctrl_o_reg <= 4'b0000;
                     
                 endcase
             

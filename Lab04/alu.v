@@ -12,31 +12,35 @@ module alu(
 /* Write your code HERE */
 reg signed[32-1:0] a,b;
 
+assign Zero = ~(|result);
 
 always @(*) begin
 
     a <= src1;
-    b <=src2;
+    b <= src2;
+    if(~rst_n)begin
+        result <= 0;
+    end
+    else begin
+        case(ALU_control)
+            4'b0010: // add
+                result <= a + b;
+            4'b0110://sub
+                result <= a - b;
+            4'b0000://and
+                result <= a & b;
+            4'b0001://or
+                result <= a | b;
+            4'b0111://slt
+                begin
+                    result[0] <= (a < b);
+                    result[31:1] <= 0;
+                end
+            default:
+                result <= result;
 
-    case(ALU_control)
-        4'b0010: // add
-            result <= a + b;
-        4'b0110://sub
-            result <= a - b;
-        4'b0000://and
-            result <= a & b;
-        4'b0001://or
-            result <= a | b;
-        4'b0111://slt
-            begin:
-                result[0] <= (a < b);
-                result[31:1] <= 0;
-            end
-        default:
-            result <= result;
-
-    endcase
-
+        endcase
+    end
 
     
 end

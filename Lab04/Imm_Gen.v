@@ -37,7 +37,7 @@ always @(*) begin
 
         default:
             Imm_Gen_o <= 0;
-
+            
     endcase
 
 end

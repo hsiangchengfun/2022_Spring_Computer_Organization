@@ -8,4 +8,7 @@ module Adder(
 
 /* Write your code HERE */
 
+
+assign sum_o = src1_i + src2_i ;
+
 endmodule

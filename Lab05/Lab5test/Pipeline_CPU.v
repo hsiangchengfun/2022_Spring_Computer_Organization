@@ -20,6 +20,7 @@ wire [31:0] RTdata_o;
 wire [31:0] Imm_Gen_o , Imm_Gen_o_shift;
 wire [31:0] ALUSrc1_o;
 wire [31:0] ALUSrc2_o;
+// wire [7:0]  MUX_control_o;
 wire [7:0]  MUX_control_o;
 
 wire [31:0] PC_Add_Immediate;
@@ -39,7 +40,7 @@ wire [31:0] DM_o;
 wire MemtoReg, MemRead, MemWrite;
 wire [1:0] ForwardA;
 wire [1:0] ForwardB;
-wire [31:0] PC_Add4;
+wire [32-1:0] PC_Add4;
 
 reg [32-1:0]Branch_adder_o;
 
@@ -91,29 +92,29 @@ wire [31:0] MEMWB_PC_Add4_o;
 
 
 // IF
-MUX_2to1 MUX_PCSrc(
+MUX_2to1 MUX_PCSrc(//ok
     .data0_i(PC_Add4),
     .data1_i(PC_Add_Immediate),
     .select_i(~IFID_Flush),
-    .data_o(pc_i)
+    .data_o(PC_i)
 );
 
-ProgramCounter PC(
+ProgramCounter PC(//ok
     .clk_i(clk_i),
     .rst_i(rst_i),
     .PCWrite(PC_write),
-    .pc_i(pc_i),
-    .pc_o(pc_o)
+    .pc_i(PC_i),
+    .pc_o(PC_o)
 );
 
-Adder PC_plus_4_Adder(
-    .src1_i(pc_o),
+Adder PC_plus_4_Adder(//ok
+    .src1_i(PC_o),
     .src2_i(32'd4),
     .sum_o(PC_Add4)
 );
 
-Instr_Memory IM(
-    .addr_i(pc_o),
+Instr_Memory IM(//ok
+    .addr_i(PC_o),
     .instr_o(Instr_Mem_o)
 );
 
@@ -142,15 +143,15 @@ Hazard_detection Hazard_detection_obj(
     .control_output_select(MUXControl)
 );
 
-MUX_2to1 MUX_control(
+MUX_2to1_8bit MUX_control(
     .data0_i( { MemtoReg, RegWrite, Jump, MemRead, MemWrite, ALUOp, ALUSrc } ),
-    .data1_i( 32'd0 ),
+    .data1_i( 8'd0 ),
     .select_i( MUXControl ),
     .data_o(MUX_control_o)
 );
 
 Decoder Decoder(
-    .instr_i( IFID_Instr_o ),
+    .instr_i( IFID_Instr_o[6:0] ),
     .RegWrite(RegWrite),
     .Branch(Branch),
     .Jump(Jump),

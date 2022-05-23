@@ -39,6 +39,8 @@ always @(*) begin
                     result[0] <= (a < b);
                     result[31:1] <= 0;
                 end
+            4'b0011://xor
+                result <= a ^ b;
             default:
                 result <= result;
 

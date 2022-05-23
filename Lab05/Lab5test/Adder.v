@@ -5,6 +5,8 @@ module Adder(
     input  [32-1:0] src2_i,
     output reg [32-1:0] sum_o
 );
+
+
 // module Adder(
 //     input  [32-1:0] src1_i,
 //     input  [32-1:0] src2_i,

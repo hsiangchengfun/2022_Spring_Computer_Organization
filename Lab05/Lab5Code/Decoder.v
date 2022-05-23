@@ -71,8 +71,8 @@ assign MemWrite = (opcode[6:4] == 3'b010)? 1 : 0 ;
 // only jalr need choose 1 (use src1 + imme)
 assign ALUSrc = (opcode[6:4] == 3'b000 || opcode[6:4] == 3'b001 || opcode[6:4] == 3'b010 )? 1 : 0 ;
 // only addi or lw or sw take imme
-assign ALUOp[1:0] = (opcode[6:4] == 3'b110)? 2'b01 : (opcode[6:4] == 3'b011)? 2'b10 : (opcode[6:4] == 3'b001)? 2'b11 : 2'b00 ;
-// r-type => 10 ; branch => 01 ; lw/sw => 00 ; addi => 11
+assign ALUOp[1:0] = (opcode[6:4] == 3'b110)? 2'b01 : (opcode[6:4] == 3'b011 && funct3 != 3'b100)? 2'b10 : (opcode[6:4] == 3'b001)? 2'b11 : 2'b00 ;
+// r-type => 10 ; branch => 01 ; lw/sw => 00 ; addi/xor => 11
 
 
 

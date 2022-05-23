@@ -38,9 +38,14 @@ always @(*) begin
                 endcase
             
             end
-        2'b11://addi
-            ALU_Ctrl_o <= 4'b0010;
+        2'b11:
+            case(instr)
+                //xor
+                4'b0100:
+                    ALU_Ctrl_o <= 4'b0011;
 
+            default: ALU_Ctrl_o <= 4'b0010; // addi
+            endcase
         default:
             ALU_Ctrl_o <= 4'b1111;
 

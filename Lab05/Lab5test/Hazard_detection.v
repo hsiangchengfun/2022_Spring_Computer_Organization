@@ -10,8 +10,8 @@ module Hazard_detection(
 );
 /* Write your code HERE */
 
-always @(posedge clk) begin
-    if(IDEXE_memRead  && (IDEXE_regRd == IFID_regRS || IDEXE_regRd == IFID_regRT ))begin
+always @(*) begin
+    if(IDEXE_memRead  && ((IDEXE_regRd == IFID_regRs) || (IDEXE_regRd == IFID_regRt) ))begin
         PC_write <= 1'b0;
         IFID_write <=  1'b0;
         control_output_select <= 1'b1;
@@ -26,4 +26,5 @@ always @(posedge clk) begin
 end
 
 endmodule
+
 

@@ -5,14 +5,20 @@ module ForwardingUnit (
     input [5-1:0] IDEXE_RS2,
     input [5-1:0] EXEMEM_RD,
     input [5-1:0] MEMWB_RD,
-    input [2-1:0] EXEMEM_RegWrite,
-    input [2-1:0] MEMWB_RegWrite,
+    // input [2-1:0] EXEMEM_RegWrite,
+    input [1-1:0] EXEMEM_RegWrite,
+    // input [2-1:0] MEMWB_RegWrite,
+    input [1-1:0] MEMWB_RegWrite,
     output reg [2-1:0] ForwardA,
     output reg [2-1:0] ForwardB
 );
 
 always@(*) begin
     
+    // if(EXEMEM_RegWrite[])
+
+
+
     if((EXEMEM_RegWrite[0]) && (EXEMEM_RD!=0) && (IDEXE_RS1==EXEMEM_RD))begin
         ForwardA = 2'b10; 
     end

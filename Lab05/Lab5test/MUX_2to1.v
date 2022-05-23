@@ -16,7 +16,6 @@ module MUX_2to1(
 /* Write your code HERE */
 
 // assign data_o = (select_i == 1'b0)? data0_i : data1_i ;
-
 always @(*) begin
     if(select_i == 1'b0) data_o <= data0_i;
     else data_o <= data1_i;

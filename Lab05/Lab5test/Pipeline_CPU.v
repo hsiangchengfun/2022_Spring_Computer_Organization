@@ -91,14 +91,14 @@ wire [31:0] MEMWB_PC_Add4_o;
 
 
 // IF
-MUX_2to1 MUX_PCSrc(//ok
+MUX_2to1 MUX_PCSrc(
     .data0_i(PC_Add4),
     .data1_i(PC_Add_Immediate),
     .select_i(~IFID_Flush),
     .data_o(pc_i)
 );
 
-ProgramCounter PC(//ok
+ProgramCounter PC(
     .clk_i(clk_i),
     .rst_i(rst_i),
     .PCWrite(PC_write),
@@ -106,13 +106,13 @@ ProgramCounter PC(//ok
     .pc_o(pc_o)
 );
 
-Adder PC_plus_4_Adder(//ok
+Adder PC_plus_4_Adder(
     .src1_i(pc_o),
     .src2_i(32'd4),
     .sum_o(PC_Add4)
 );
 
-Instr_Memory IM(//ok
+Instr_Memory IM(
     .addr_i(pc_o),
     .instr_o(Instr_Mem_o)
 );

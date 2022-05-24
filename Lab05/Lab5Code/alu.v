@@ -34,13 +34,20 @@ always @(*) begin
                 result <= a & b;
             4'b0001://or
                 result <= a | b;
-            4'b0111://slt
+            4'b0111://slt // slti
                 begin
                     result[0] <= (a < b);
                     result[31:1] <= 0;
                 end
             4'b0011://xor
                 result <= a ^ b;
+            4'b0100:
+				result <= a << b; // sll,slli
+            4'b1000:
+				result <= a >>> b; //sra
+            4'b1001:
+				result <= a >> b; //srli
+            
             default:
                 result <= result;
 

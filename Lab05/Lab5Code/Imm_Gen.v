@@ -28,6 +28,10 @@ always @(*) begin
         //sw
         7'b0100011:
             Imm_Gen_o <= {  {21{instr_i[31]}} , instr_i[30:25] , instr_i[11:7] };
+
+
+        //impoertant below two instr shouldn't give [0]bit 1'b0
+        // because we will use shift left later , if give => will shift two bits 
         //branch
         7'b1100011:
             Imm_Gen_o <= { 1'b0 ,{20{instr_i[31]}}, instr_i[7] ,instr_i[30:25] , instr_i[11:8] };

@@ -28,7 +28,7 @@ always@(posedge clk_i) begin
 
     else begin
         WB_o <= WB_i;
-        DM_o <= DM_o;
+        DM_o <= DM_i;
         alu_ans_o <= alu_ans_i;
         WBreg_o <= WBreg_i;
         pc_add4_o <= pc_add4_i;

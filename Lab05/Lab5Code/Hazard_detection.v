@@ -12,7 +12,9 @@ module Hazard_detection(
 
 always @(*) begin
     
-    if(IDEXE_memRead  && ((IDEXE_regRd == IFID_regRs) || (IDEXE_regRd == IFID_regRt) ))begin
+    // if load and use  => give nop => don;t write and control give zero(select 1)
+
+    if(IDEXE_memRead/*load*/  && ((IDEXE_regRd == IFID_regRs) || (IDEXE_regRd == IFID_regRt)/*use*/ ))begin
         PC_write <= 1'b0;
         IFID_write <=  1'b0;
         control_output_select <= 1'b1;

@@ -15,7 +15,8 @@ module ForwardingUnit (
 
 always@(*) begin
     
-
+    // exemem's priority is higher than memwb
+    // if rs is equal to egister's rd => give forward
 
     if((EXEMEM_RegWrite[0]) && (EXEMEM_RD != 0) && (IDEXE_RS1 == EXEMEM_RD))begin
         ForwardA <= 2'b10; 

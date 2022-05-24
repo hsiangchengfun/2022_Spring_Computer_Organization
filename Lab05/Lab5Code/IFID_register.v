@@ -15,6 +15,8 @@ module IFID_register (
 
 always@(posedge clk_i)begin
     
+    //if flush => means nop => nop should give addi (slide says)
+    
     if(~rst_i || flush)begin
         address_o <= 0;
         instr_o <= 32'b00000000000000000000000000010011; //addi

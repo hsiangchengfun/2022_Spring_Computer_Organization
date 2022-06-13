@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -I./include main.cpp direct_mapped_cache.cpp set_associative_cache.cpp
+CFLAGS = -I./include main.cpp direct_mapped_cache.cpp set_associative_cache.cpp extra.cpp
 
 all: main.o
 

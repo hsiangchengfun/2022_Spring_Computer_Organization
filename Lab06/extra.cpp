@@ -1,17 +1,9 @@
 
-#include "string"   
-#include<vector>
 #include<iostream>
-#include<fstream>
-#include<cmath>
-#include<queue>
-#define ll long long
+#include<string>
+
+
 using namespace std;
-
-
-
-
-
 
 string h2b(char ch){
     string bin;

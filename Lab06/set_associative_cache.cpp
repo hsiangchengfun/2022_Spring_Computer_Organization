@@ -64,6 +64,24 @@ float set_associative(string filename, int way, int block_size, int cache_size)
             if(valid[index][i] && cache[index][i] == bin_tag){
                 beenput = true;
                 hit_num ++;
+
+                queue<string> tmp;
+
+                while(!used_order[index].empty()){
+                    if( used_order[index].front() != bin_tag ){
+                        tmp.push(used_order[index].front());
+                        used_order[index].pop();
+                    }
+                    else{// if same
+                        used_order[index].pop();
+                    }
+                }
+                while(!tmp.empty()){
+                    used_order[index].push(tmp.front());
+                    tmp.pop();
+                }
+                used_order[index].push(bin_tag);
+
                 break;
             }
             else if( !valid[index][i] ){
